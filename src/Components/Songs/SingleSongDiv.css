@@ -15,12 +15,15 @@
 .single-song-artist-name,
 .single-song-trackName,
 .single-song-details {
+    box-sizing: border-box;
   border: 1px solid rgb(200, 200, 200);
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 2px;
+  
 }
 
 .single-song-img,
