@@ -1,0 +1,27 @@
+.main {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90%;
+  border: 1px solid red;
+}
+
+.main p {
+  text-align: center;
+  width: 60%;
+}
+
+.main h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.welcome-text {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
