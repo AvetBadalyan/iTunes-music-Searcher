@@ -1,30 +1,38 @@
-.single-song{
-    height: 10vh;
-    border: 1px solid rgb(200, 200, 200);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.single-song {
+  height: 10vh;
+  border: 1px solid rgb(200, 200, 200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .single-song img {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
-.single-song-img, .single-song-artist-name, .single-song-trackName, .single-song-details {
- border: 1px solid rgb(200, 200, 200);
- height: 100%;
- display: flex;
- justify-content: center;
- align-items: center;
- text-align: center;
+.single-song-img,
+.single-song-artist-name,
+.single-song-trackName,
+.single-song-details {
+  border: 1px solid rgb(200, 200, 200);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.single-song-img, .single-song-artist-name, .single-song-details{
-    width: 15%;
+.single-song-img,
+.single-song-artist-name,
+.single-song-details {
+  width: 10%;
 }
 
-.single-song-trackName{
-    width: 55%;
+.single-song-trackName {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
 }
-

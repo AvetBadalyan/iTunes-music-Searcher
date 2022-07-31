@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  gap: 5vh;
   height: 90%;
- border: 1px solid rgb(200, 200, 200);
 }
 
 .main p {
@@ -19,7 +19,6 @@
 }
 
 .welcome-text {
-  border: 1px solid rgb(200, 200, 200);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,13 +26,13 @@
   width: 60%;
 }
 
-input{
+input {
   width: 20vw;
   font-size: 20px;
 }
 
-.search-result{
+.search-result {
   height: 50%;
-   border: 1px solid rgb(200, 200, 200);
-   width: 60%;
+  border: 1px solid rgb(200, 200, 200);
+  width: 60%;
 }
