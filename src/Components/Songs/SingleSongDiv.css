@@ -1,5 +1,5 @@
 .single-song {
-  height: 10vh;
+  height: 11vh;
   border: 1px solid rgb(200, 200, 200);
   display: flex;
   justify-content: space-between;
@@ -15,7 +15,7 @@
 .single-song-artist-name,
 .single-song-trackName,
 .single-song-details {
-    box-sizing: border-box;
+  box-sizing: border-box;
   border: 1px solid rgb(200, 200, 200);
   height: 100%;
   display: flex;
@@ -23,17 +23,19 @@
   align-items: center;
   text-align: center;
   padding: 2px;
-  
 }
 
 .single-song-img,
-.single-song-artist-name,
 .single-song-details {
   width: 10%;
 }
 
+.single-song-artist-name {
+  width: 20%;
+}
+
 .single-song-trackName {
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: flex-start;
   align-items: center;

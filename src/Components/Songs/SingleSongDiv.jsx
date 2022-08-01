@@ -9,11 +9,14 @@ export default function SingleSongDiv({ result }) {
         <img src={result.artworkUrl100} />
       </div>
       <div className="single-song-artist-name">
-      
-        {result.artistName.length < 20 ? result.artistName : `${result.artistName.slice(0, 21)}...`}
+        {result.artistName.length < 30
+          ? result.artistName
+          : `${result.artistName.slice(0, 31)}...`}
       </div>
       <div className="single-song-trackName">{result.trackName}</div>
-      <div className="single-song-details"> details </div>
+      <div className="single-song-details">
+        <Link to={`/songdetails/${result.trackId}`}>details</Link>
+      </div>
     </div>
   );
 }
