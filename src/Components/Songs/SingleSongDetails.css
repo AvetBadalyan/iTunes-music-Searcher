@@ -1,6 +1,29 @@
-.song-details{
-    color: white;
-    height: 500px;
-    width: 100vw;
-    background-color: gray;
+.song-details {
+  background-color: rgb(31, 31, 31);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.song-details-content {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4vh;
+  color: white;
+  padding: 20px;
+}
+
+.song-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+audio {
+  width: 60%;
+  background-color: white;
+  border-radius: 8px;
 }
