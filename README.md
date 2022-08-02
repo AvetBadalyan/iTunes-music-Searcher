@@ -1,5 +1,9 @@
+# A small web application to search music in the apple store, navigate from search results to a single song details page
+
 ![screenshot](./src//assets/screenshots/screenshot1.jpg)
+
 ![screenshot](./src//assets/screenshots/screenshot2.jpg)
+
 ![screenshot](./src//assets/screenshots/screenshot3.jpg)
 
 # Getting Started with Create React App
