@@ -3,24 +3,34 @@ import SongsList from "../Songs/SongsList";
 import "./Main.css";
 
 export default function Main() {
-  const [products, setProducts] = useState({
+  const [searchResults, setSearchResults] = useState({
     results: [],
   });
   const [inputValue, setInputValue] = useState("");
+  const [isPlaceholder, setIsPlaceholder] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    setInputValue(e.target.value.trim());
   };
 
   const handleSearch = () => {
     fetch(`https://itunes.apple.com/search?term=${inputValue}`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setSearchResults(data));
   };
 
   useEffect(() => {
-    if (inputValue.length > 2) {
+    if (inputValue.trim().length > 1) {
+      setIsPlaceholder(false);
+      setIsSearching(true);
       handleSearch();
+      setIsSearching(false);
+    } else {
+      setSearchResults({
+        results: [],
+      });
+      setIsPlaceholder(true);
     }
   }, [inputValue]);
 
@@ -39,8 +49,14 @@ export default function Main() {
         value={inputValue}
         onChange={handleInputChange}
       />
+      {isPlaceholder && <p>Please type a filter...</p>}
+      {isSearching && <p>Searching...</p>}
+      {!isPlaceholder &&
+        (searchResults.results.length < 1
+          ? "No results"
+          : `Great! Found ${searchResults.resultCount} tracks `)}
       <div className="search-result">
-        <SongsList products={products} />
+        <SongsList searchResults={searchResults} />
       </div>
     </div>
   );
