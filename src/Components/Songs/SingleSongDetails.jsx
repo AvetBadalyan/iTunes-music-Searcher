@@ -59,17 +59,17 @@ export default function SingleSongDetails() {
 
         <div>
           <a target="_blank" href={song.artistViewUrl}>
-            Check the Artist's page on Apple music'
+            Check the Artist's page on Apple music
           </a>
         </div>
         <div>
           <a target="_blank" href={song.collectionViewUrl}>
-            Check the collection on Apple music'
+            Check the collection on Apple music
           </a>
         </div>
         <div>
           <a target="_blank" href={song.trackViewUrl}>
-            Check the track on Apple music'
+            Check the track on Apple music
           </a>
         </div>
       </div>

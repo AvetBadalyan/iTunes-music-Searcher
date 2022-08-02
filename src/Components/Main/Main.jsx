@@ -4,18 +4,7 @@ import "./Main.css";
 
 export default function Main() {
   const [products, setProducts] = useState({
-    results: [
-      {
-        kind: "song",
-        artistId: 3097598,
-        trackId: 724397429,
-        artistName: "Charles Aznavour",
-        collectionName: "Charles Aznavour: Palais des Congrès 2000",
-        trackName: "Sa jeunesse / Hier encore",
-        artworkUrl100:
-          "https://is4-ssl.mzstatic.com/image/thumb/Music6/v4/92/45/17/924517d5-7f73-8a5a-6083-46ee549d3982/00724353202057.jpg/100x100bb.jpg",
-      },
-    ],
+    results: [],
   });
   const [inputValue, setInputValue] = useState("");
 
