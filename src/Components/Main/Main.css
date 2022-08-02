@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: center;
   gap: 5vh;
-  height: 90%;
+  box-sizing: border-box;
 }
 
 .main p {
@@ -24,15 +24,26 @@
   justify-content: center;
   align-items: center;
   width: 60%;
+  gap: 2vh;
 }
 
 input {
   width: 20vw;
   font-size: 20px;
+  margin-bottom: 0.5vh;
+}
+
+.input-div p {
+  text-align: left;
 }
 
 .search-result {
   height: 50%;
   border: 1px solid rgb(200, 200, 200);
   width: 60%;
+  box-sizing: border-box;
+}
+
+.search-result-count {
+  font-size: 20px;
 }

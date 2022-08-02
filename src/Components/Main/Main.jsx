@@ -11,7 +11,7 @@ export default function Main() {
   const [isSearching, setIsSearching] = useState(false);
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value.trim());
+    setInputValue(e.target.value);
   };
 
   const handleSearch = () => {
@@ -43,18 +43,22 @@ export default function Main() {
           listening to. 1 month free, then $9.99/month
         </p>
       </div>
-      <input
-        type="text"
-        placeholder="search..."
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      {isPlaceholder && <p>Please type a filter...</p>}
-      {isSearching && <p>Searching...</p>}
-      {!isPlaceholder &&
-        (searchResults.results.length < 1
-          ? "No results"
-          : `Great! Found ${searchResults.resultCount} tracks `)}
+      <div className="input-div">
+        <input
+          type="text"
+          placeholder="search..."
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        {isPlaceholder && <p>Please type a filter...</p>}
+        {isSearching && <p>Searching...</p>}
+      </div>
+      <div className="search-result-count">
+        {!isPlaceholder &&
+          (searchResults.results.length < 1
+            ? "No results"
+            : `Great! Found ${searchResults.resultCount} tracks 🎼`)}
+      </div>
       <div className="search-result">
         <SongsList searchResults={searchResults} />
       </div>

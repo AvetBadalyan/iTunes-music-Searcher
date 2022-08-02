@@ -1,10 +1,12 @@
 .main-page {
-  background-color: rgb(31, 31, 31);
-  width: 100vw;
+  background: url("./../assets/walpaper/bg\ \(6\).jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 10px;
   padding: 10px;
+  box-sizing: border-box;
 }

@@ -15,7 +15,9 @@ export default function SingleSongDiv({ result }) {
       </div>
       <div className="single-song-trackName">{result.trackName}</div>
       <div className="single-song-details">
-        <Link to={`/songdetails/${result.trackId}`}>details</Link>
+        <Link to={`/songdetails/${result.trackId}`} target="_blank">
+          details
+        </Link>
       </div>
     </div>
   );

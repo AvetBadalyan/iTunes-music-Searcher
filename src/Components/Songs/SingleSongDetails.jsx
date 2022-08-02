@@ -36,16 +36,23 @@ export default function SingleSongDetails() {
             <img src={song.artworkUrl100} alt="artist-image" />
           </div>
           <div className="song-infos">
-            <div className="song-info">track Price: {song.trackPrice} $</div>
-            <div className="song-info"> release Date: {song.releaseDate}</div>
-            <div className="song-info">duration: {duration}</div>
-            <div className="song-info">country: {song.country}</div>
-            <div className="song-info">currency: {song.currency}</div>
+            <div className="song-info">Track price: {song.trackPrice} $</div>
             <div className="song-info">
-              primary Genre: {song.primaryGenreName}
+              Release Date: {`${song.releaseDate}`.slice(0, 10)}
+            </div>
+            <div className="song-info">Duration: {duration}</div>
+            <div className="song-info">Country: {song.country}</div>
+            <div className="song-info">Currency: {song.currency}</div>
+            <div className="song-info">
+            Genre: {song.primaryGenreName}
             </div>
             <div className="song-info">
-              <p>Collection: {song.collectionName}</p>
+              <p>
+                {`Collection: `}
+                {`${song.collectionName}`.length < 40
+                  ? song.collectionName
+                  : ` ${song.collectionName.slice(0, 40)}...`}
+              </p>
             </div>
           </div>
         </div>
