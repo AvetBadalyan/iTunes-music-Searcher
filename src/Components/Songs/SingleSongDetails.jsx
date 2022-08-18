@@ -19,8 +19,8 @@ export default function SingleSongDetails() {
   }, [trackId]);
 
   const millisToMinutesAndSeconds = (millis) => {
-    var minutes = Math.floor(millis / 60000);
-    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    let minutes = Math.floor(millis / 60000);
+    let seconds = ((millis % 60000) / 1000).toFixed(0);
     return `${minutes} minutes ${seconds < 10 ? "0" : ""}${seconds} seconds`;
   };
 
@@ -43,9 +43,7 @@ export default function SingleSongDetails() {
             <div className="song-info">Duration: {duration}</div>
             <div className="song-info">Country: {song.country}</div>
             <div className="song-info">Currency: {song.currency}</div>
-            <div className="song-info">
-            Genre: {song.primaryGenreName}
-            </div>
+            <div className="song-info">Genre: {song.primaryGenreName}</div>
             <div className="song-info">
               <p>
                 {`Collection: `}
