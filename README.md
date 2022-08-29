@@ -1,5 +1,7 @@
 # A small web application to search music in the apple store, navigate from search results to a single song details page
 
+Link to website - [https://itunes-simple-clone-a7486.web.app/](https://itunes-simple-clone-a7486.web.app/)
+
 ![screenshot](./src//assets/screenshots/screenshot1.jpg)
 
 ![screenshot](./src//assets/screenshots/screenshot2.jpg)
