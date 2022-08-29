@@ -14,13 +14,12 @@ export default function Main() {
     setInputValue(e.target.value);
   };
 
-  const handleSearch = () => {
-    fetch(`https://itunes.apple.com/search?term=${inputValue}`)
-      .then((res) => res.json())
-      .then((data) => setSearchResults(data));
-  };
-
   useEffect(() => {
+    const handleSearch = () => {
+      fetch(`https://itunes.apple.com/search?term=${inputValue}`)
+        .then((res) => res.json())
+        .then((data) => setSearchResults(data));
+    };
     if (inputValue.trim().length > 1) {
       setIsPlaceholder(false);
       setIsSearching(true);
