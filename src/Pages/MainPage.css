@@ -10,3 +10,39 @@
   padding: 10px;
   box-sizing: border-box;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 99%;
+    margin: 0 auto;
+  }
+
+  .welcome-text {
+    font-size: 20px;
+  }
+
+  .welcome-text h1 {
+    font-size: 40px;
+  }
+
+  .single-song-details {
+    width: 15%;
+  }
+
+  .single-song-img {
+    width: 45%;
+  }
+
+  .single-song-artist-name {
+    width: 20%;
+  }
+
+  .single-song-trackName {
+    width: 20%;
+  }
+}

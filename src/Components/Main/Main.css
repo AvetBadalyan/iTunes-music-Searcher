@@ -6,29 +6,28 @@
   align-items: center;
   gap: 5vh;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .main p {
   text-align: center;
-  width: 60%;
 }
 
 .main h1 {
-  font-size: 40px;
+  font-size: 6vh;
   text-align: center;
 }
 
 .welcome-text {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
   gap: 2vh;
+  width: 100%;
+  flex-flow: column wrap;
 }
 
 input {
-  width: 20vw;
   font-size: 20px;
   margin-bottom: 0.5vh;
 }
@@ -37,11 +36,8 @@ input {
   text-align: left;
 }
 
-.search-result {
-  height: 50%;
-  border: 1px solid rgb(200, 200, 200);
-  width: 60%;
-  box-sizing: border-box;
+.welcome-text-container {
+  width: 70%;
 }
 
 .search-result-count {

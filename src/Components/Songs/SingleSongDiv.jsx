@@ -6,7 +6,7 @@ export default function SingleSongDiv({ result }) {
   return (
     <div className="single-song">
       <div className="single-song-img">
-        <img src={result.artworkUrl100} />
+        <img src={result.artworkUrl100} alt="singer"/>
       </div>
       <div className="single-song-artist-name">
         {result.artistName.length < 30

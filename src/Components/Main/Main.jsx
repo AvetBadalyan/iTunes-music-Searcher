@@ -36,11 +36,13 @@ export default function Main() {
   return (
     <div className="main">
       <div className="welcome-text">
-        <h1>Discover new music every day.</h1>
-        <p>
-          Get playlists and albums inspired by the artists and genres you’re
-          listening to. 1 month free, then $9.99/month
-        </p>
+        <div className="welcome-text-container">
+          <h1>Discover new music every day.</h1>
+          <p>
+            Get playlists and albums inspired by the artists and genres you’re
+            listening to. 1 month free, then $9.99/month
+          </p>
+        </div>
       </div>
       <div className="input-div">
         <input
@@ -51,16 +53,14 @@ export default function Main() {
         />
         {isPlaceholder && <p>Please type a filter...</p>}
         {isSearching && <p>Searching...</p>}
+        <div className="search-result-count">
+          {!isPlaceholder &&
+            (searchResults.results.length < 1
+              ? "No results"
+              : `Great! Found ${searchResults.resultCount} tracks 🎼`)}
+        </div>
       </div>
-      <div className="search-result-count">
-        {!isPlaceholder &&
-          (searchResults.results.length < 1
-            ? "No results"
-            : `Great! Found ${searchResults.resultCount} tracks 🎼`)}
-      </div>
-      <div className="search-result">
-        <SongsList searchResults={searchResults} />
-      </div>
+      <SongsList searchResults={searchResults} />
     </div>
   );
 }

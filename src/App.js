@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainPage />}></Route>
+        <Route path="/" element={<MainPage />} />
         <Route path="/songdetails/:trackId" element={<SingleSongDetails />} />
       </Routes>
     </BrowserRouter>
