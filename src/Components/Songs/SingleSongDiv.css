@@ -3,6 +3,7 @@
   border: 1px solid rgb(200, 200, 200);
   display: flex;
   align-items: center;
+  font-size: 4vh;
 }
 
 .single-song img {
@@ -35,4 +36,50 @@
 
 .single-song-trackName {
   width: 35%;
+}
+
+@media only screen and (max-width: 1080px) {
+  .single-song {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+  }
+  .single-song-img,
+  .single-song-artist-name,
+  .single-song-trackName,
+  .single-song-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 30%;
+  }
+
+  .single-song-img,
+  .single-song-artist-name,
+  .single-song-trackName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 33.33%;
+    height: 80%;
+  }
+
+  .single-song-details {
+    border: none;
+    height: 20%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .single-song {
+    height: 20vh;
+    font-size: 1rem;
+  }
+
+  .single-song-details {
+    padding: 0;
+  }
 }

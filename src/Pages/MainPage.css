@@ -16,49 +16,9 @@
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 412px) {
+@media only screen and (max-width: 1080px) {
   .container {
     width: 99%;
     margin: 0 auto;
-  }
-
-  .welcome-text {
-    font-size: 20px;
-  }
-
-  .welcome-text h1 {
-    font-size: 40px;
-  }
-
-  .single-song {
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .single-song-img,
-  .single-song-artist-name,
-  .single-song-trackName,
-  .single-song-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-width: 30%;
-  }
-
-  .single-song-img,
-  .single-song-artist-name,
-  .single-song-trackName {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 33.33%;
-    height: 80%;
-  }
-
-  .single-song-details {
-    border: none;
-    height: 20%;
   }
 }
