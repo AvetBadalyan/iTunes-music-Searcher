@@ -51,7 +51,7 @@ export default function Main() {
           value={inputValue}
           onChange={handleInputChange}
         />
-        {isPlaceholder && <p>Please type a filter...</p>}
+        {isPlaceholder && <p>Please type a name / title...</p>}
         {isSearching && <p>Searching...</p>}
         <div className="search-result-count">
           {!isPlaceholder &&
