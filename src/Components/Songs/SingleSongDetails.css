@@ -81,7 +81,7 @@ a:active {
   color: blue;
 }
 
-@media only screen and (max-width: 600px) and (orientation: portrait) {
+@media only screen and (max-width: 600px) {
   .song-image-and-info {
     flex-direction: column;
     justify-content: flex-start;
