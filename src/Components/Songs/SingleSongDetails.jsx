@@ -33,7 +33,7 @@ export default function SingleSongDetails() {
         <Link to="/">Go Back</Link>
         <div className="song-image-and-info">
           <div className="singer-image">
-            <img src={song.artworkUrl100} alt="artist-image" />
+            <img src={song.artworkUrl100} alt="artist" />
           </div>
           <div className="song-infos">
             <div className="song-info">Track price: {song.trackPrice} $</div>
@@ -63,17 +63,17 @@ export default function SingleSongDetails() {
         </div>
 
         <div>
-          <a target="_blank" href={song.artistViewUrl}>
+          <a target="_blank" href={song.artistViewUrl} rel="noreferrer">
             Check the Artist's page on Apple music
           </a>
         </div>
         <div>
-          <a target="_blank" href={song.collectionViewUrl}>
+          <a target="_blank" href={song.collectionViewUrl} rel="noreferrer">
             Check the collection on Apple music
           </a>
         </div>
         <div>
-          <a target="_blank" href={song.trackViewUrl}>
+          <a target="_blank" href={song.trackViewUrl} rel="noreferrer">
             Check the track on Apple music
           </a>
         </div>

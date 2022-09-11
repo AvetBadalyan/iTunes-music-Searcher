@@ -1,9 +1,7 @@
 .song-details {
   background-color: rgb(31, 31, 31);
-  width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   box-sizing: border-box;
 }
@@ -13,7 +11,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4vh;
+  gap: 2vh;
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -26,10 +24,19 @@
 }
 
 audio {
-  width: 60%;
+  width: 65%;
   background-color: white;
   border-radius: 8px;
   box-sizing: border-box;
+}
+
+.song-infos {
+  width: 65%;
+}
+
+.singer-image {
+  height: 100%;
+  width: 12%;
 }
 
 .singer-image img {
@@ -38,16 +45,12 @@ audio {
   box-sizing: border-box;
 }
 
-.singer-image {
-  height: 100%;
-  width: 10%;
-}
-
 .song-image-and-info {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  gap: 2vw;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1vw;
   box-sizing: border-box;
 }
 
@@ -73,4 +76,28 @@ a:hover {
 /* selected link */
 a:active {
   color: blue;
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+  .song-image-and-info {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .singer-image {
+    width: 35%;
+  }
+
+  audio {
+    width: 95%;
+  }
+
+  .song-infos {
+    width: 95%;
+  }
+
+  .song-details-content {
+    justify-content: space-between;
+  }
 }
