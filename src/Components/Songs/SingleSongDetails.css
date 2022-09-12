@@ -1,7 +1,7 @@
 .song-details {
   background-color: rgb(31, 31, 31);
-  height: 100vh;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   box-sizing: border-box;
 }
@@ -102,5 +102,9 @@ a:active {
 
   .song-details-content {
     justify-content: space-between;
+  }
+
+  .song-details {
+    min-height: 100vh;
   }
 }
