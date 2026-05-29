@@ -6,8 +6,8 @@ export default function SongsList({ searchResults }) {
   return (
     <div className="search-result">
       {searchResults &&
-        searchResults.results.map((result) => (
-          <SingleSongDiv key={result.trackId} result={result} />
+        searchResults.results.map((result, index) => (
+          <SingleSongDiv key={result.trackId || index} result={result} />
         ))}
     </div>
   );

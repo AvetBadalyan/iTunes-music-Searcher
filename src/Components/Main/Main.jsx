@@ -16,7 +16,7 @@ export default function Main() {
 
   useEffect(() => {
     const handleSearch = () => {
-      fetch(`https://itunes.apple.com/search?term=${inputValue}`)
+      fetch(`https://itunes.apple.com/search?term=${inputValue}&media=music`)
         .then((res) => res.json())
         .then((data) => setSearchResults(data));
     };

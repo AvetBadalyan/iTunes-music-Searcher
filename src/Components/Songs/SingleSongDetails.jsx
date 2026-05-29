@@ -10,10 +10,10 @@ export default function SingleSongDetails() {
   useEffect(() => {
     const fetchMusic = async () => {
       const response = await fetch(
-        `https://itunes.apple.com/search?term=${trackId}`
+        `https://itunes.apple.com/lookup?id=${trackId}`
       );
       const responseData = await response.json();
-      setSong(responseData.results[0]);
+      setSong(responseData.results[0] || {});
     };
     fetchMusic();
   }, [trackId]);
@@ -24,7 +24,9 @@ export default function SingleSongDetails() {
     return `${minutes} minutes ${seconds < 10 ? "0" : ""}${seconds} seconds`;
   };
 
-  const duration = millisToMinutesAndSeconds(song.trackTimeMillis);
+  const duration = song.trackTimeMillis 
+    ? millisToMinutesAndSeconds(song.trackTimeMillis)
+    : "Unavailable";
 
   return (
     <div className="song-details">
@@ -36,26 +38,28 @@ export default function SingleSongDetails() {
             <img src={song.artworkUrl100} alt="artist" />
           </div>
           <div className="song-infos">
-            <div className="song-info">Track price: {song.trackPrice} $</div>
+            <div className="song-info">Track price: {song.trackPrice || "Unavailable"} $</div>
             <div className="song-info">
-              Release Date: {`${song.releaseDate}`.slice(0, 10)}
+              Release Date: {song.releaseDate ? `${song.releaseDate}`.slice(0, 10) : "Unavailable"}
             </div>
             <div className="song-info">Duration: {duration}</div>
-            <div className="song-info">Country: {song.country}</div>
-            <div className="song-info">Currency: {song.currency}</div>
-            <div className="song-info">Genre: {song.primaryGenreName}</div>
+            <div className="song-info">Country: {song.country || "Unavailable"}</div>
+            <div className="song-info">Currency: {song.currency || "Unavailable"}</div>
+            <div className="song-info">Genre: {song.primaryGenreName || "Unavailable"}</div>
             <div className="song-info">
               <p>
                 {`Collection: `}
-                {`${song.collectionName}`.length < 40
-                  ? song.collectionName
-                  : ` ${song.collectionName.slice(0, 40)}...`}
+                {song.collectionName
+                  ? song.collectionName.length < 40
+                    ? song.collectionName
+                    : ` ${song.collectionName.slice(0, 40)}...`
+                  : "Unavailable"}
               </p>
             </div>
           </div>
         </div>
         <div className="song-text">
-          {song.artistName} - {song.trackName}
+          {song.artistName || "Unknown artist"} - {song.trackName || "Unknown track"}
         </div>
         <div>
           <p>Preview:</p>
