@@ -2,19 +2,15 @@
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  gap: 5vh;
-  box-sizing: border-box;
+  gap: 3.2rem;
   width: 100%;
 }
 
-.main p {
-  text-align: center;
-}
-
 .main h1 {
-  font-size: 6vh;
+  font-size: var(--fs-xxl);
+  font-weight: 700;
+  line-height: 1.15;
   text-align: center;
 }
 
@@ -22,50 +18,84 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2vh;
   width: 100%;
-  flex-flow: column wrap;
-}
-
-.input-div,
-.input-div p {
-  text-align: left;
-  margin-bottom: 0.5vh;
-  font-size: 4.5vh;
-}
-
-input {
-  font-size: 2rem;
-  max-width: 100%;
 }
 
 .welcome-text-container {
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  text-align: center;
 }
 
-.search-result-count {
-  font-size: 1.8rem;
+.welcome-text-container p {
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+.input-div {
   width: 100%;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-div > p {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.6);
   text-align: left;
 }
 
-@media only screen and (max-width: 1080px) and (orientation: portrait) {
-  .welcome-text {
-    font-size: 20px;
+input[type="text"] {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  font-size: var(--fs-md);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius);
+  color: white;
+  outline: none;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+input[type="text"]:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-result-count {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: left;
+}
+
+@media only screen and (max-width: 1080px) {
+  .main h1 {
+    font-size: var(--fs-xl);
   }
 
-  .welcome-text h1 {
-    font-size: 40px;
-  }
-
-  .input-div {
-    max-width: 99%;
-    text-align: left;
+  .welcome-text-container {
+    width: 100%;
   }
 }
 
-@media only screen and (max-width: 600px) and (orientation: portrait) {
-  .welcome-text-container {
-    width: 99%;
+@media only screen and (max-width: 600px) {
+  .main {
+    gap: 2.4rem;
+  }
+
+  .main h1 {
+    font-size: var(--fs-lg);
+  }
+
+  .welcome-text-container p {
+    font-size: 1.6rem;
   }
 }

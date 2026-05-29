@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./SingleSongDetails.css";
 import { useParams } from "react-router-dom";
+import "./SingleSongDetails.css";
 
 export default function SingleSongDetails() {
   const [song, setSong] = useState({});
   const { trackId } = useParams();
+
+  const handleGoBack = () => {
+    if (window.opener) {
+      window.close();
+    } else {
+      window.location.href = "/";
+    }
+  };
 
   useEffect(() => {
     const fetchMusic = async () => {
@@ -32,10 +39,13 @@ export default function SingleSongDetails() {
     <div className="song-details">
       <div className="song-details-content">
         <h1>iTunes Music Searcher</h1>
-        <Link to="/">Go Back</Link>
+        <button className="go-back-btn" onClick={handleGoBack}>← Back to Search</button>
         <div className="song-image-and-info">
           <div className="singer-image">
-            <img src={song.artworkUrl100} alt="artist" />
+            <img
+              src={song.artworkUrl100?.replace("100x100bb", "600x600bb")}
+              alt={song.artistName || "artist"}
+            />
           </div>
           <div className="song-infos">
             <div className="song-info">Track price: {song.trackPrice || "Unavailable"} $</div>
@@ -66,19 +76,15 @@ export default function SingleSongDetails() {
           <audio src={song.previewUrl} controls />
         </div>
 
-        <div>
+        <div className="external-links">
           <a target="_blank" href={song.artistViewUrl} rel="noreferrer">
-            Check the Artist's page on Apple music
+            Check the Artist's page on Apple Music
           </a>
-        </div>
-        <div>
           <a target="_blank" href={song.collectionViewUrl} rel="noreferrer">
-            Check the collection on Apple music
+            Check the collection on Apple Music
           </a>
-        </div>
-        <div>
           <a target="_blank" href={song.trackViewUrl} rel="noreferrer">
-            Check the track on Apple music
+            Check the track on Apple Music
           </a>
         </div>
       </div>

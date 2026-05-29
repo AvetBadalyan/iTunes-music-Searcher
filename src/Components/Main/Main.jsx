@@ -3,9 +3,7 @@ import SongsList from "../Songs/SongsList";
 import "./Main.css";
 
 export default function Main() {
-  const [searchResults, setSearchResults] = useState({
-    results: [],
-  });
+  const [searchResults, setSearchResults] = useState({ results: [] });
   const [inputValue, setInputValue] = useState("");
   const [isPlaceholder, setIsPlaceholder] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
@@ -15,21 +13,25 @@ export default function Main() {
   };
 
   useEffect(() => {
-    const handleSearch = () => {
-      fetch(`https://itunes.apple.com/search?term=${inputValue}&media=music`)
-        .then((res) => res.json())
-        .then((data) => setSearchResults(data));
-    };
     if (inputValue.trim().length > 1) {
       setIsPlaceholder(false);
       setIsSearching(true);
-      handleSearch();
-      setIsSearching(false);
+      const timer = setTimeout(() => {
+        fetch(
+          `https://itunes.apple.com/search?term=${encodeURIComponent(inputValue)}&media=music`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setSearchResults(data);
+            setIsSearching(false);
+          })
+          .catch(() => setIsSearching(false));
+      }, 400);
+      return () => clearTimeout(timer);
     } else {
-      setSearchResults({
-        results: [],
-      });
+      setSearchResults({ results: [] });
       setIsPlaceholder(true);
+      setIsSearching(false);
     }
   }, [inputValue]);
 
@@ -47,7 +49,7 @@ export default function Main() {
       <div className="input-div">
         <input
           type="text"
-          placeholder="search..."
+          placeholder="Search by artist, song, or album..."
           value={inputValue}
           onChange={handleInputChange}
         />

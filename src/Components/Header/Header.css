@@ -1,9 +1,12 @@
-.header{
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    font-size: 40px;
-    width: 100%;
+.header {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7rem;
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  gap: 0.8rem;
+  width: 100%;
 }
