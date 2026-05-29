@@ -1,80 +1,81 @@
-# A small web application to search music in the apple store, navigate from search results to a single song details page
+# iTunes Music Searcher
 
-Link to website - [https://itunes-simple-clone-a7486.web.app/](https://itunes-simple-clone-a7486.web.app/)
+A responsive music search app built with React that lets users search the iTunes catalog in real time and explore detailed information about any track.
 
-![screenshot](./src//assets/screenshots/screenshot1.jpg)
+🔗 **Live demo:** [https://itunes-simple-clone-a7486.web.app](https://itunes-simple-clone-a7486.web.app)
 
-![screenshot](./src//assets/screenshots/screenshot2.jpg)
+---
 
-![screenshot](./src//assets/screenshots/screenshot3.jpg)
+## Screenshots
 
-# Getting Started with Create React App
+![Search page](./src/assets/screenshots/screenshot1.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Search results](./src/assets/screenshots/screenshot2.png)
 
-## Available Scripts
+![Song details](./src/assets/screenshots/screenshot3.png)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About the App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Type any artist, song, or album name into the search bar and get up to 50 matching tracks from the iTunes API instantly. Click **Details** on any result to open a dedicated page showing the full track info — artwork, genre, album, release date, and a 30-second audio preview — then close it to return right back to your search.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Features
 
-### `npm test`
+- **Real-time search** with 400 ms debounce — no button needed
+- **Track detail page** with high-resolution artwork (600×600) and audio preview
+- **Smart navigation** — the Details page opens in a new tab and the Back button closes it, returning focus to the search tab
+- **Fully responsive** — adapts cleanly to desktop, tablet, and mobile
+- **No back-end** — all data comes directly from the public iTunes Search API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Skills Practiced
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Area | Details |
+|---|---|
+| **React** | Functional components, hooks (`useState`, `useEffect`, `useParams`), conditional rendering |
+| **React Router v6** | `BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`, multi-page SPA |
+| **API Integration** | `fetch` with the iTunes Search & Lookup API, `encodeURIComponent`, async state management |
+| **CSS Architecture** | Design token system (`--clr-*`, `--fs-*`), `1rem = 10px` base, frosted-glass UI |
+| **Responsive Design** | Mobile-first layout, three breakpoints (1080 px / 600 px / 480 px), no media-query orientation guards |
+| **UX Patterns** | Debounced input, loading state, empty-state handling, `window.opener` / `window.close()` tab management |
+| **Deployment** | Production build with Create React App, hosted on Firebase Hosting |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+- React 18 · Create React App
+- React Router DOM v6
+- iTunes Search API (public, no key required)
+- Plain CSS (custom properties, no framework)
+- Firebase Hosting
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js ≥ 16
+- npm ≥ 8
 
-## Learn More
+### Install & Run
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/<your-username>/iTunes-music-Searcher.git
+cd iTunes-music-Searcher
+npm install
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Code Splitting
+### Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run build
+```
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The optimised bundle is output to the `build/` folder.
