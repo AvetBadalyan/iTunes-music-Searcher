@@ -76,6 +76,15 @@ input[type="text"]:focus {
   text-align: left;
 }
 
+.popular-label {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.55);
+  text-align: left;
+  width: 100%;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 @media only screen and (max-width: 1080px) {
   .main h1 {
     font-size: var(--fs-xl);

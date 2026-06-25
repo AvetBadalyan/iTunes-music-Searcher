@@ -4,3 +4,31 @@
   overflow: hidden;
   width: 100%;
 }
+
+.load-more {
+  display: flex;
+  justify-content: center;
+  padding: 1.6rem;
+  border-top: 1px solid var(--clr-border);
+}
+
+.load-more-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius);
+  padding: 0.8rem 2.4rem;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.load-more-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.load-more-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
