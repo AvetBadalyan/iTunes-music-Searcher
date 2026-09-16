@@ -75,30 +75,66 @@
 .track-detail {
   background-color: $clr-bg-dark;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 
   &__content {
     display: flex;
     flex-direction: column;
     gap: $space-lg;
     padding: $space-xl;
-    max-width: 90rem;
+    max-width: 80rem;
     width: 100%;
     margin: 0 auto;
 
     @media (max-width: $bp-mobile) {
-      padding: $space-lg;
+      padding: $space-md;
       gap: $space-md;
     }
   }
 
-  &__logo {
-    font-size: $fs-xl;
-    font-weight: $fw-semibold;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-md;
 
     @media (max-width: $bp-mobile) {
-      font-size: $fs-lg;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $space-sm;
+    }
+  }
+
+  &__logo {
+    font-size: $fs-lg;
+    font-weight: $fw-semibold;
+    margin: 0;
+
+    @media (max-width: $bp-mobile) {
+      font-size: $fs-md;
+    }
+  }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-xs;
+    padding: $space-xs $space-sm;
+    font-size: $fs-sm;
+    color: $clr-text-secondary;
+    background: transparent;
+    border: 1px solid $clr-border-light;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      color: $clr-text-primary;
+      border-color: rgba(255, 255, 255, 0.5);
+      background: $clr-overlay-hover;
+    }
+
+    i {
+      font-size: $fs-xs;
     }
   }
 
@@ -109,7 +145,7 @@
     align-items: center;
     justify-content: center;
     gap: $space-md;
-    padding: $space-xxl;
+    padding: $space-xxl $space-lg;
     text-align: center;
 
     i {
@@ -118,28 +154,28 @@
 
     p {
       color: $clr-text-secondary;
+      margin: 0;
     }
   }
 
-  &__error {
-    i {
-      color: $clr-error;
-    }
+  &__error i {
+    color: $clr-error;
   }
 
   &__main {
     display: flex;
-    gap: $space-lg;
+    gap: $space-xl;
     align-items: flex-start;
 
     @media (max-width: $bp-mobile) {
       flex-direction: column;
+      gap: $space-lg;
     }
   }
 
   &__artwork {
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     flex-shrink: 0;
     border-radius: $radius-lg;
     overflow: hidden;
@@ -152,8 +188,8 @@
     }
 
     @media (max-width: $bp-mobile) {
-      width: 16rem;
-      height: 16rem;
+      width: 14rem;
+      height: 14rem;
     }
   }
 
@@ -161,30 +197,36 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: $space-xs;
   }
 
   &__row {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     padding: $space-sm 0;
     border-bottom: 1px solid $clr-border;
-    gap: $space-md;
+    gap: $space-lg;
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     @media (max-width: $bp-mobile-sm) {
       flex-direction: column;
       gap: $space-xs;
+      align-items: flex-start;
     }
   }
 
   &__label {
     color: $clr-text-muted;
     font-size: $fs-sm;
+    flex-shrink: 0;
   }
 
   &__value {
     color: $clr-text-primary;
-    font-weight: $fw-medium;
+    font-size: $fs-sm;
     text-align: right;
 
     @media (max-width: $bp-mobile-sm) {
@@ -193,11 +235,13 @@
   }
 
   &__title {
-    font-size: $fs-lg;
-    font-weight: $fw-bold;
+    font-size: $fs-md;
+    font-weight: $fw-semibold;
+    margin: 0;
+    line-height: 1.4;
 
     @media (max-width: $bp-mobile) {
-      font-size: $fs-md;
+      font-size: $fs-base;
     }
   }
 
@@ -205,45 +249,46 @@
     display: flex;
     flex-direction: column;
     gap: $space-sm;
-
-    audio {
-      width: 100%;
-      max-width: 50rem;
-      border-radius: $radius-md;
-    }
   }
 
   &__preview-label {
-    font-size: $fs-sm;
+    font-size: $fs-xs;
     color: $clr-text-muted;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    font-weight: $fw-medium;
+  }
+
+  &__audio {
+    width: 100%;
+    max-width: 40rem;
+    height: 4rem;
+    border-radius: $radius-md;
   }
 
   &__links {
     display: flex;
     flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
     gap: $space-sm;
+    color: $clr-text-secondary;
+    font-size: $fs-sm;
+    padding: $space-xs 0;
+    transition: color $transition-base;
 
-    a {
-      display: inline-flex;
-      align-items: center;
-      gap: $space-sm;
-      color: $clr-text-secondary;
+    &:hover {
+      color: $clr-text-primary;
+    }
+
+    i {
+      width: 1.8rem;
       font-size: $fs-sm;
-      width: fit-content;
-      padding: $space-xs 0;
-      transition: color $transition-base;
-
-      &:hover {
-        color: $clr-text-primary;
-      }
-
-      i {
-        width: 2rem;
-        text-align: center;
-        color: $clr-text-muted;
-      }
+      color: $clr-text-muted;
     }
   }
 }

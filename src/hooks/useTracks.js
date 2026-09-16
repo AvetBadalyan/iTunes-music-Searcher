@@ -1,13 +1,36 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { fetchTrendingSongs, searchTracks } from '../services/itunes'
 import { useDebounce } from './useDebounce'
 
 /**
- * Custom hook for managing track search and trending songs
+ * Custom hook for managing track search and trending songs.
+ * The search term is stored in the URL (`?q=`) so results survive navigation
+ * to a track detail page and back, and are shareable/bookmarkable.
  * @returns {Object} Track state and handlers
  */
 export function useTracks() {
-	const [searchTerm, setSearchTerm] = useState('')
+	const [searchParams, setSearchParams] = useSearchParams()
+	const searchTerm = searchParams.get('q') ?? ''
+
+	const setSearchTerm = useCallback(
+		value => {
+			setSearchParams(
+				prev => {
+					const next = new URLSearchParams(prev)
+					if (value) {
+						next.set('q', value)
+					} else {
+						next.delete('q')
+					}
+					return next
+				},
+				{ replace: true }
+			)
+		},
+		[setSearchParams]
+	)
+
 	const [tracks, setTracks] = useState([])
 	const [trendingTracks, setTrendingTracks] = useState([])
 	const [isLoading, setIsLoading] = useState(false)

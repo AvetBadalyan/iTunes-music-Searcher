@@ -15,13 +15,23 @@ export default function TrackDetailPage() {
 	const navigate = useNavigate()
 	const { track, isLoading, error } = useTrackDetails(trackId)
 
-	const handleGoBack = () => navigate(-1)
+	// Go back to the previous page (preserving search results). Fall back to the
+	// home page when there is no history to return to (e.g. a shared deep link).
+	const handleGoBack = () => {
+		if (window.history.length > 1) {
+			navigate(-1)
+		} else {
+			navigate('/')
+		}
+	}
 
 	if (isLoading) {
 		return (
 			<div className="track-detail">
 				<div className="track-detail__content">
-					<h1 className="track-detail__logo">iTunes Music Searcher</h1>
+					<header className="track-detail__header">
+						<h1 className="track-detail__logo">iTunes Music Searcher</h1>
+					</header>
 					<div className="track-detail__loading">
 						<i
 							className="fa-solid fa-spinner fa-spin fa-2x"
@@ -38,7 +48,9 @@ export default function TrackDetailPage() {
 		return (
 			<div className="track-detail">
 				<div className="track-detail__content">
-					<h1 className="track-detail__logo">iTunes Music Searcher</h1>
+					<header className="track-detail__header">
+						<h1 className="track-detail__logo">iTunes Music Searcher</h1>
+					</header>
 					<div
 						className="track-detail__error"
 						role="alert"
@@ -67,18 +79,20 @@ export default function TrackDetailPage() {
 	return (
 		<div className="track-detail">
 			<div className="track-detail__content">
-				<h1 className="track-detail__logo">iTunes Music Searcher</h1>
-
-				<button
-					className="btn btn--secondary"
-					onClick={handleGoBack}
-				>
-					<i
-						className="fa-solid fa-arrow-left"
-						aria-hidden="true"
-					></i>
-					Back
-				</button>
+				<header className="track-detail__header">
+					<h1 className="track-detail__logo">iTunes Music Searcher</h1>
+					<button
+						type="button"
+						onClick={handleGoBack}
+						className="track-detail__back"
+					>
+						<i
+							className="fa-solid fa-arrow-left"
+							aria-hidden="true"
+						></i>
+						Back
+					</button>
+				</header>
 
 				<div className="track-detail__main">
 					<div className="track-detail__artwork">
@@ -132,18 +146,23 @@ export default function TrackDetailPage() {
 					<div className="track-detail__preview">
 						<p className="track-detail__preview-label">Preview</p>
 						<audio
+							className="track-detail__audio"
 							src={track.previewUrl}
 							controls
 						/>
 					</div>
 				)}
 
-				<div className="track-detail__links">
+				<nav
+					className="track-detail__links"
+					aria-label="External links"
+				>
 					{track.artistViewUrl && (
 						<a
 							href={track.artistViewUrl}
 							target="_blank"
 							rel="noreferrer"
+							className="track-detail__link"
 						>
 							<i
 								className="fa-solid fa-user"
@@ -157,6 +176,7 @@ export default function TrackDetailPage() {
 							href={track.collectionViewUrl}
 							target="_blank"
 							rel="noreferrer"
+							className="track-detail__link"
 						>
 							<i
 								className="fa-solid fa-compact-disc"
@@ -170,6 +190,7 @@ export default function TrackDetailPage() {
 							href={track.trackViewUrl}
 							target="_blank"
 							rel="noreferrer"
+							className="track-detail__link"
 						>
 							<i
 								className="fa-solid fa-music"
@@ -178,7 +199,7 @@ export default function TrackDetailPage() {
 							Track on Apple Music
 						</a>
 					)}
-				</div>
+				</nav>
 			</div>
 		</div>
 	)

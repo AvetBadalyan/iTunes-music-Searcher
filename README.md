@@ -28,11 +28,14 @@ debouncing, pagination, and detailed track previews.
   `offset` parameter
 - **Track detail page** — high-res artwork (600×600), full metadata, and
   30-second audio preview
+- **URL-driven search** — the search term lives in the URL (`?q=...`), so
+  results survive navigation to a track and back, and can be shared or
+  bookmarked
 - **Skeleton loading states** — smooth visual feedback while fetching data
-- **Error handling** — graceful error states with retry options
-- **Smart navigation** — track details open in new tabs with proper back
-  navigation
-- **Fully responsive** — adapts to desktop, tablet, and mobile
+- **Error handling** — graceful error states with inline retry
+- **In-app navigation** — track details open in the same tab; the back button
+  returns to your exact search results
+- **Fully responsive** — adapts from desktop down to mobile
 - **No backend required** — all data comes directly from public Apple APIs
 
 ---
@@ -87,8 +90,8 @@ src/
 
 ### Custom Hooks
 
-- **`useTracks`** — manages search state, trending songs, pagination, and
-  loading/error states
+- **`useTracks`** — manages URL-synced search state (`useSearchParams`),
+  trending songs, pagination, and loading/error states
 - **`useTrackDetails`** — fetches single track data with loading and error
   handling
 - **`useDebounce`** — generic debounce hook for search input optimization
@@ -105,23 +108,23 @@ src/
 
 - SCSS with design tokens (`_variables.scss`)
 - BEM-like naming convention
-- Mobile-first responsive design
+- Responsive layout with `max-width` breakpoints (desktop → mobile)
 - Skeleton loading animations
 
 ---
 
 ## Skills Demonstrated
 
-| Area                  | Details                                                                                          |
-| --------------------- | ------------------------------------------------------------------------------------------------ |
-| **React 19**          | Functional components, hooks (`useState`, `useEffect`, `useParams`, `useCallback`), custom hooks |
-| **React Router v7**   | `BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`, SPA navigation                          |
-| **API Integration**   | `fetch` with async/await, error handling, response normalization, pagination                     |
-| **Custom Hooks**      | Encapsulated business logic, reusable stateful logic                                             |
-| **SCSS Architecture** | Variables, partials, `@use` modules, BEM naming                                                  |
-| **Build Tools**       | Vite configuration, production builds, asset handling                                            |
-| **Error Handling**    | Error boundaries, graceful degradation, user-friendly messages                                   |
-| **UX Patterns**       | Debounced input, skeleton loaders, loading states, pagination                                    |
+| Area                  | Details                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| **React 19**          | Functional components, hooks (`useState`, `useEffect`, `useCallback`), custom hooks       |
+| **React Router v7**   | `BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`, `useNavigate`, `useSearchParams` |
+| **API Integration**   | `fetch` with async/await, error handling, response normalization, pagination              |
+| **Custom Hooks**      | Encapsulated business logic, reusable stateful logic                                      |
+| **SCSS Architecture** | Variables, partials, `@use` modules, BEM naming                                           |
+| **Build Tools**       | Vite configuration, production builds, asset handling                                     |
+| **Error Handling**    | Error boundaries, graceful degradation, user-friendly messages                            |
+| **UX Patterns**       | Debounced input, skeleton loaders, loading states, pagination                             |
 
 ---
 
