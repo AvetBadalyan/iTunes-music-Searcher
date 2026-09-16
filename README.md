@@ -1,8 +1,11 @@
 # iTunes Music Searcher
 
-A responsive music search app built with React that lets users search the iTunes catalog in real time and explore detailed information about any track.
+A modern, responsive music search app built with React 19 that lets you explore
+the iTunes catalog in real-time. Features trending charts, instant search with
+debouncing, pagination, and detailed track previews.
 
-🔗 **Live demo:** [https://itunes-simple-clone-a7486.web.app](https://itunes-simple-clone-a7486.web.app)
+🔗 **Live demo:**
+[https://itunes-simple-clone-a7486.web.app](https://itunes-simple-clone-a7486.web.app)
 
 ---
 
@@ -12,47 +15,113 @@ A responsive music search app built with React that lets users search the iTunes
 
 ![Search results](./src/assets/screenshots/screenshot2.png)
 
-![Song details](./src/assets/screenshots/screenshot3.png)
+![Track details](./src/assets/screenshots/screenshot3.png)
 
 ---
 
-## About the App
+## Features
 
-Type any artist, song, or album name into the search bar and get matching tracks from the iTunes API instantly. The homepage shows Apple Music's **top 25 songs chart** on load. Click **Details** on any result to open a dedicated page showing the full track info — artwork, genre, album, release date, and a 30-second audio preview — then close it to return right back to your search.
-
-### Features
-
-- **Top songs on load** — homepage shows Apple Music's real top 25 chart via the iTunes RSS feed
-- **Real-time search** with 400 ms debounce — no button needed
-- **Pagination** — Load More button fetches the next 50 results using the API's `offset` parameter
-- **Track detail page** with high-resolution artwork (600×600) and audio preview
-- **Smart navigation** — the Details page opens in a new tab and the Back button closes it, returning focus to the search tab; the header logo links back to home
-- **Fully responsive** — adapts cleanly to desktop, tablet, and mobile
-- **No back-end** — all data comes directly from public Apple APIs, no key required
-
----
-
-## Skills Practiced
-
-| Area | Details |
-|---|---|
-| **React** | Functional components, hooks (`useState`, `useEffect`, `useParams`), conditional rendering |
-| **React Router v6** | `BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`, multi-page SPA |
-| **API Integration** | `fetch` with the iTunes Search, Lookup & RSS Chart APIs, `encodeURIComponent`, async state management, response normalization |
-| **CSS Architecture** | Design token system (`--clr-*`, `--fs-*`), `1rem = 10px` base, frosted-glass UI |
-| **Responsive Design** | Mobile-first layout, three breakpoints (1080 px / 600 px / 480 px), no media-query orientation guards |
-| **UX Patterns** | Debounced input, pagination with `offset`, loading states, empty-state handling, `window.opener` / `window.close()` tab management |
-| **Deployment** | Production build with Create React App, hosted on Firebase Hosting |
+- **Trending songs on load** — displays Apple Music's top 25 chart via iTunes
+  RSS feed
+- **Real-time search** with 400ms debounce — no search button needed
+- **Pagination** — "Load More" fetches the next 50 results using the API's
+  `offset` parameter
+- **Track detail page** — high-res artwork (600×600), full metadata, and
+  30-second audio preview
+- **Skeleton loading states** — smooth visual feedback while fetching data
+- **Error handling** — graceful error states with retry options
+- **Smart navigation** — track details open in new tabs with proper back
+  navigation
+- **Fully responsive** — adapts to desktop, tablet, and mobile
+- **No backend required** — all data comes directly from public Apple APIs
 
 ---
 
 ## Tech Stack
 
-- React 18 · Create React App
-- React Router DOM v6
-- iTunes Search API + iTunes RSS Chart API (public, no key required)
-- Plain CSS (custom properties, no framework)
-- Firebase Hosting
+| Technology       | Version | Purpose                      |
+| ---------------- | ------- | ---------------------------- |
+| React            | 19      | UI framework                 |
+| React Router     | 7       | Client-side routing          |
+| Vite             | 6       | Build tool & dev server      |
+| SCSS             | -       | Styling with variables       |
+| iTunes API       | -       | Music data (no key required) |
+| Firebase Hosting | -       | Deployment                   |
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ErrorBoundary.jsx
+│   ├── Header.jsx
+│   ├── SearchInput.jsx
+│   ├── SongCard.jsx
+│   ├── SongCardSkeleton.jsx
+│   └── SongList.jsx
+├── hooks/               # Custom React hooks
+│   ├── useDebounce.js
+│   ├── useTrackDetails.js
+│   └── useTracks.js
+├── pages/               # Page components
+│   ├── HomePage.jsx
+│   └── TrackDetailPage.jsx
+├── services/            # API layer
+│   └── itunes.js
+├── styles/              # SCSS styles
+│   ├── _base.scss
+│   ├── _components.scss
+│   ├── _pages.scss
+│   ├── _variables.scss
+│   └── index.scss
+├── assets/              # Static assets
+├── App.jsx              # Root component with routing
+└── main.jsx             # Entry point
+```
+
+---
+
+## Architecture Highlights
+
+### Custom Hooks
+
+- **`useTracks`** — manages search state, trending songs, pagination, and
+  loading/error states
+- **`useTrackDetails`** — fetches single track data with loading and error
+  handling
+- **`useDebounce`** — generic debounce hook for search input optimization
+
+### Service Layer
+
+- **`itunes.js`** — centralized API functions with proper error handling:
+  - `fetchTrendingSongs()` — RSS feed for top 25
+  - `searchTracks(term, offset)` — search with pagination
+  - `fetchTrackById(id)` — single track lookup
+  - Utility functions for formatting dates, durations, and artwork URLs
+
+### Styling
+
+- SCSS with design tokens (`_variables.scss`)
+- BEM-like naming convention
+- Mobile-first responsive design
+- Skeleton loading animations
+
+---
+
+## Skills Demonstrated
+
+| Area                  | Details                                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| **React 19**          | Functional components, hooks (`useState`, `useEffect`, `useParams`, `useCallback`), custom hooks |
+| **React Router v7**   | `BrowserRouter`, `Routes`, `Route`, `Link`, `useParams`, SPA navigation                          |
+| **API Integration**   | `fetch` with async/await, error handling, response normalization, pagination                     |
+| **Custom Hooks**      | Encapsulated business logic, reusable stateful logic                                             |
+| **SCSS Architecture** | Variables, partials, `@use` modules, BEM naming                                                  |
+| **Build Tools**       | Vite configuration, production builds, asset handling                                            |
+| **Error Handling**    | Error boundaries, graceful degradation, user-friendly messages                                   |
+| **UX Patterns**       | Debounced input, skeleton loaders, loading states, pagination                                    |
 
 ---
 
@@ -60,8 +129,8 @@ Type any artist, song, or album name into the search bar and get matching tracks
 
 ### Prerequisites
 
-- Node.js ≥ 16
-- npm ≥ 8
+- Node.js ≥ 18
+- npm ≥ 9
 
 ### Install & Run
 
@@ -69,7 +138,7 @@ Type any artist, song, or album name into the search bar and get matching tracks
 git clone https://github.com/<your-username>/iTunes-music-Searcher.git
 cd iTunes-music-Searcher
 npm install
-npm start
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -80,4 +149,37 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 npm run build
 ```
 
-The optimised bundle is output to the `build/` folder.
+The optimized bundle is output to the `dist/` folder.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Deploy
+
+Builds the app and deploys it to Firebase Hosting in one step:
+
+```bash
+npm run deploy
+```
+
+Requires the [Firebase CLI](https://firebase.google.com/docs/cli) and a prior
+`firebase login`.
+
+---
+
+## API Reference
+
+This app uses two public Apple APIs (no authentication required):
+
+- **iTunes Search API** — `https://itunes.apple.com/search`
+- **iTunes Lookup API** — `https://itunes.apple.com/lookup`
+- **iTunes RSS Feed** — `https://itunes.apple.com/us/rss/topsongs/limit=25/json`
+
+---
+
+## License
+
+MIT

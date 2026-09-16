@@ -1,0 +1,142 @@
+@use 'variables' as *;
+
+// ============================================
+// BASE STYLES
+// ============================================
+
+html {
+	font-size: 62.5%; // 1rem = 10px
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $font-family;
+	font-size: $fs-base;
+	line-height: 1.5;
+	color: $clr-text-primary;
+	background-color: $clr-bg-dark;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	font-family: inherit;
+	cursor: pointer;
+}
+
+input {
+	font-family: inherit;
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Screen-reader-only content (visually hidden, still announced)
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.container {
+	width: 80%;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	@media (max-width: $bp-desktop) {
+		width: 95%;
+	}
+
+	@media (max-width: $bp-mobile) {
+		width: 100%;
+	}
+}
+
+// ============================================
+// BUTTON STYLES
+// ============================================
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: $space-sm;
+	padding: $space-sm $space-md;
+	font-size: $fs-sm;
+	font-weight: $fw-medium;
+	border-radius: $radius-md;
+	border: 1px solid transparent;
+	transition: all $transition-base;
+	white-space: nowrap;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	&--primary {
+		background: $clr-accent;
+		color: $clr-text-primary;
+		border-color: $clr-accent;
+
+		&:hover:not(:disabled) {
+			background: #fb6a7a; // lighter accent
+		}
+	}
+
+	&--secondary {
+		background: transparent;
+		color: $clr-text-secondary;
+		border-color: $clr-border-light;
+
+		&:hover:not(:disabled) {
+			color: $clr-text-primary;
+			border-color: rgba(255, 255, 255, 0.5);
+			background: $clr-overlay-hover;
+		}
+	}
+}
+
+// ============================================
+// SKELETON ANIMATION
+// ============================================
+
+@keyframes skeleton-pulse {
+	0%,
+	100% {
+		opacity: 0.4;
+	}
+	50% {
+		opacity: 0.15;
+	}
+}
+
+.skeleton-pulse {
+	background: rgba(255, 255, 255, 0.1);
+	animation: skeleton-pulse 1.5s ease-in-out infinite;
+}

@@ -1,0 +1,249 @@
+@use 'variables' as *;
+
+// ============================================
+// HOME PAGE
+// ============================================
+
+.home-page {
+  background-image: url('../assets/wallpaper/bg (6).jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  padding: $space-lg $space-md;
+
+  @media (max-width: $bp-mobile) {
+    padding: $space-md $space-sm;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-xl;
+  width: 100%;
+}
+
+.hero {
+  text-align: center;
+  max-width: 70rem;
+
+  &__title {
+    font-size: $fs-xxl;
+    font-weight: $fw-bold;
+    line-height: 1.15;
+    margin-bottom: $space-md;
+
+    @media (max-width: $bp-desktop) {
+      font-size: $fs-xl;
+    }
+
+    @media (max-width: $bp-mobile) {
+      font-size: $fs-lg;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-md;
+    color: $clr-text-secondary;
+    line-height: 1.6;
+
+    @media (max-width: $bp-mobile) {
+      font-size: $fs-base;
+    }
+  }
+}
+
+.trending-label {
+  font-size: $fs-sm;
+  color: $clr-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  align-self: flex-start;
+  width: 100%;
+}
+
+// ============================================
+// TRACK DETAIL PAGE
+// ============================================
+
+.track-detail {
+  background-color: $clr-bg-dark;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+    padding: $space-xl;
+    max-width: 90rem;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: $bp-mobile) {
+      padding: $space-lg;
+      gap: $space-md;
+    }
+  }
+
+  &__logo {
+    font-size: $fs-xl;
+    font-weight: $fw-semibold;
+
+    @media (max-width: $bp-mobile) {
+      font-size: $fs-lg;
+    }
+  }
+
+  &__loading,
+  &__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-md;
+    padding: $space-xxl;
+    text-align: center;
+
+    i {
+      color: $clr-text-muted;
+    }
+
+    p {
+      color: $clr-text-secondary;
+    }
+  }
+
+  &__error {
+    i {
+      color: $clr-error;
+    }
+  }
+
+  &__main {
+    display: flex;
+    gap: $space-lg;
+    align-items: flex-start;
+
+    @media (max-width: $bp-mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__artwork {
+    width: 20rem;
+    height: 20rem;
+    flex-shrink: 0;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: $bp-mobile) {
+      width: 16rem;
+      height: 16rem;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: $space-sm 0;
+    border-bottom: 1px solid $clr-border;
+    gap: $space-md;
+
+    @media (max-width: $bp-mobile-sm) {
+      flex-direction: column;
+      gap: $space-xs;
+    }
+  }
+
+  &__label {
+    color: $clr-text-muted;
+    font-size: $fs-sm;
+  }
+
+  &__value {
+    color: $clr-text-primary;
+    font-weight: $fw-medium;
+    text-align: right;
+
+    @media (max-width: $bp-mobile-sm) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-size: $fs-lg;
+    font-weight: $fw-bold;
+
+    @media (max-width: $bp-mobile) {
+      font-size: $fs-md;
+    }
+  }
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    audio {
+      width: 100%;
+      max-width: 50rem;
+      border-radius: $radius-md;
+    }
+  }
+
+  &__preview-label {
+    font-size: $fs-sm;
+    color: $clr-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-sm;
+      color: $clr-text-secondary;
+      font-size: $fs-sm;
+      width: fit-content;
+      padding: $space-xs 0;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $clr-text-primary;
+      }
+
+      i {
+        width: 2rem;
+        text-align: center;
+        color: $clr-text-muted;
+      }
+    }
+  }
+}
